@@ -2,6 +2,7 @@ const URL = "https://newsapi.org/v2/",
   API_KEY = "3fd068685b074ef9830c688c1e926fdc",
   newsContainer = document.querySelector(".news-container"),
   form = document.forms["form"],
+  endpoint = form.elements["endpoint"],
   q = form.elements["q"],
   language = form.elements["language"],
   sortBy = form.elements["sortBy"],
@@ -87,10 +88,10 @@ function createArticle({
   `;
 }
 
-form.elements["endpoint"].addEventListener("input", function () {
-  endpoint = this.value;
+endpoint.addEventListener("input", function () {
+  endpointVal = this.value;
 
-  if (endpoint === "everything") {
+  if (endpointVal === "everything") {
     endPointEverything();
   } else {
     endPointTopLines();
@@ -100,9 +101,7 @@ form.elements["endpoint"].addEventListener("input", function () {
 function endPointEverything() {
   elEndPoinEveryOn();
   elEndPoinTopOff();
-
-  q.classList.add("show");
-  q.classList.remove("hidden");
+  searchShow();
   buttonShow();
 }
 
@@ -121,7 +120,6 @@ btn.addEventListener("click", () => {
 
 function elEndPoinEveryOn() {
   elEndPoinEvery.forEach((elem) => {
-    elem.classList.add("show");
     elem.classList.remove("hidden");
   });
 }
@@ -129,13 +127,11 @@ function elEndPoinEveryOn() {
 function elEndPoinEveryOff() {
   elEndPoinEvery.forEach((elem) => {
     elem.classList.add("hidden");
-    elem.classList.remove("show");
   });
 }
 
 function elEndPoinTopOn() {
   elEndPoinTop.forEach((elem) => {
-    elem.classList.add("show");
     elem.classList.remove("hidden");
   });
 }
@@ -143,16 +139,17 @@ function elEndPoinTopOn() {
 function elEndPoinTopOff() {
   elEndPoinTop.forEach((elem) => {
     elem.classList.add("hidden");
-    elem.classList.remove("show");
   });
 }
 
 function buttonShow() {
-  btn.classList.add("show");
   btn.classList.remove("hidden");
 }
 
+function searchShow() {
+  q.classList.remove("hidden");
+}
+
 function searchHide() {
-  q.classList.remove("show");
   q.classList.add("hidden");
 }
