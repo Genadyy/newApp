@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <form name="form">
+        <div>
+          <select name="endpoint" >
+            <option value="everything">everything</option>
+            <option value="top-headlines">top-headlines</option>
+          </select>
+        </div>
+        <input type="text" name="q">
+        <select name="language" data-endpoint="everything">
+          <option value="en">en</option>
+          <option value="es">es</option>
+          <option value="it">it</option>
+          <option value="ru">ru</option>
+        </select>
+        <select name="sortBy">
+          <option value="relevancy">relevancy</option>
+          <option value="popularity">popularity</option>
+          <option value="publishedAt">publishedAt</option>
+          <option value="" disabled selected>Choose oprion</option>
+        </select>
+      
+        <button> get news</button>
+      </form>
+      
+      <ul class="news-container"></ul>
+      
+      
+
+    <script src="js/main.min.js"></script>
+</body>
+</html>
